@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Umme Hasnat 🌻</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Great Vibes', cursive;
+      overflow: hidden;
+    }
+
+    body {
+      background: linear-gradient(to top, #ffe066, #ffd23f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      color: #8B4000;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    #counter {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      animation: fadeIn 4s ease-in-out;
+    }
+
+    .message-card {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      font-size: 1.2rem;
+      max-width: 400px;
+      margin-bottom: 50px;
+      animation: fadeIn 5s ease-in-out;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(-45deg);
+      animation: floatUp linear infinite;
+      border-radius: 5px 5px 0 0;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(-45deg); opacity: 1;}
+      100% { transform: translateY(-600px) rotate(-45deg); opacity: 0;}
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 1rem;
+      color: #8B4000;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>শুভ জন্মদিন সূর্যমূখী🌻</h1>
+  <h2> সম্ভবত আমি আমার উইশ তোমাকে আনন্দের চেয়ে বিষন্নতায় ভোগাবে বেশি।  সরি🙏 </h2>
+div<div id="counter">Calculating your age...</div>
+
+  <div class="message-card">
+    On this special day, may your heart be filled with joy, laughter, and all the love you deserve! 💛
+  </div>
+
+  <footer>Made with ❤️, only for you.</footer>
+
+  <script>
+    // Age counter
+    const dob = new Date("2005-02-06T00:00:00");
+    const counter = document.getElementById("counter");
+
+    function updateCounter() {
+      const now = new Date();
+      let diff = now - dob;
+
+      const years = Math.floor(diff / (1000*60*60*24*365.25));
+      diff -= years * (1000*60*60*24*365.25);
+
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days * (1000*60*60*24);
+
+      const hours = Math.floor(diff / (1000*60*60));
+      diff -= hours * (1000*60*60);
+
+      const minutes = Math.floor(diff / (1000*60));
+      diff -= minutes * (1000*60);
+
+      const seconds = Math.floor(diff / 1000);
+
+      counter.innerHTML = `${years} Years ${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+    }
+
+    setInterval(updateCounter, 1000);
+
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.animationDuration = 4 + Math.random() * 3 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    }
+
+    setInterval(createHeart, 500);
+  </script>
+
+</body>
+</html>
